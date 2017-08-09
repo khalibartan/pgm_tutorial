@@ -1,0 +1,74 @@
+network unknown {
+}
+variable Coughs {
+    type discrete [ 2 ] { Coughs_0, Coughs_1 };
+}
+variable HasFever {
+    type discrete [ 2 ] { HasFever_0, HasFever_1 };
+}
+variable HasFlu {
+    type discrete [ 2 ] { HasFlu_0, HasFlu_1 };
+}
+variable HasFoodPoisoning {
+    type discrete [ 2 ] { HasFoodPoisoning_0, HasFoodPoisoning_1 };
+}
+variable HasGastricProblems {
+    type discrete [ 2 ] { HasGastricProblems_0, HasGastricProblems_1 };
+}
+variable HasHayFever {
+    type discrete [ 2 ] { HasHayFever_0, HasHayFever_1 };
+}
+variable HasPneumonia {
+    type discrete [ 2 ] { HasPneumonia_0, HasPneumonia_1 };
+}
+variable HasRash {
+    type discrete [ 2 ] { HasRash_0, HasRash_1 };
+}
+variable HasRespiratoryProblems {
+    type discrete [ 2 ] { HasRespiratoryProblems_0, HasRespiratoryProblems_1 };
+}
+variable IsFatigued {
+    type discrete [ 2 ] { IsFatigued_0, IsFatigued_1 };
+}
+variable IsSummer {
+    type discrete [ 2 ] { IsSummer_0, IsSummer_1 };
+}
+variable Vomits {
+    type discrete [ 2 ] { Vomits_0, Vomits_1 };
+}
+probability ( Coughs | HasHayFever, HasPneumonia, HasRespiratoryProblems ) {
+    table 0.899869139015, 0.250256464679, 0.897738446411, 0.24864045645, 0.900305322757, 0.252024046065, 0.892045454545, 0.252173913043, 0.100130860985, 0.749743535321, 0.102261553589, 0.75135954355, 0.0996946772434, 0.747975953935, 0.107954545455, 0.747826086957 ;
+}
+probability ( HasFever | HasHayFever, HasPneumonia ) {
+    table 0.956587012497, 0.483852981846, 0.956679806153, 0.478928924432, 0.0434129875028, 0.516147018154, 0.0433201938469, 0.521071075568 ;
+}
+probability ( HasFlu ) {
+    table 0.960005214491, 0.0399947855094 ;
+}
+probability ( HasFoodPoisoning | HasPneumonia ) {
+    table 0.900000838216, 0.9017814069, 0.0999991617841, 0.0982185930995 ;
+}
+probability ( HasGastricProblems | HasFoodPoisoning ) {
+    table 0.964349645616, 0.690378617085, 0.0356503543845, 0.309621382915 ;
+}
+probability ( HasHayFever | IsSummer ) {
+    table 0.800520156171, 0.798973929282, 0.199479843829, 0.201026070718 ;
+}
+probability ( HasPneumonia | HasFlu ) {
+    table 0.980019040823, 0.97981800484, 0.0199809591768, 0.0201819951599 ;
+}
+probability ( HasRash | HasHayFever ) {
+    table 0.800065795141, 0.800404929924, 0.199934204859, 0.199595070076 ;
+}
+probability ( HasRespiratoryProblems | HasHayFever, HasPneumonia ) {
+    table 0.974247636816, 0.249498193497, 0.496233185165, 0.142330847336, 0.025752363184, 0.750501806503, 0.503766814835, 0.857669152664 ;
+}
+probability ( IsFatigued | HasHayFever, HasPneumonia ) {
+    table 0.856692640093, 0.213256612695, 0.625557455777, 0.191032437775, 0.143307359907, 0.786743387305, 0.374442544223, 0.808967562225 ;
+}
+probability ( IsSummer ) {
+    table 0.750216258496, 0.249783741504 ;
+}
+probability ( Vomits | HasFoodPoisoning, HasPneumonia ) {
+    table 0.934988518072, 0.35092133941, 0.726589890302, 0.326359832636, 0.065011481928, 0.64907866059, 0.273410109698, 0.673640167364 ;
+}
